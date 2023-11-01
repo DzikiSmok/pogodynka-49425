@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\ForecastRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +15,7 @@ class Forecast
 
     #[ORM\ManyToOne(inversedBy: 'forecasts')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?city $city = null;
+    private ?City $city = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
@@ -41,12 +40,12 @@ class Forecast
         return $this->id;
     }
 
-    public function getCity(): ?city
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(?city $city): static
+    public function setCity(?City $city): static
     {
         $this->city = $city;
 
