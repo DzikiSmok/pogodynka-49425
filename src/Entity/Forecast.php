@@ -69,6 +69,11 @@ class Forecast
         return $this->temperature;
     }
 
+    public function getFahrenheit(): ?string
+    {
+        return $this->getTemperature() * 9 / 5 + 32;
+    }
+
     public function setTemperature(string $temperature): static
     {
         $this->temperature = $temperature;
